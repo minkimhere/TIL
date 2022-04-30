@@ -1,0 +1,48 @@
+## [SQL] SELECT 연습
+
+[REFERENCE : PROGRAMMERS > SELCET, 조건에 맞는 레코드를, 원하는 순서대로. 기본기를 처음부터 탄탄히 다져보세요.](https://programmers.co.kr/learn/courses/30/parts/17042)
+
+### 모든 레코드 조회하기
+```sql
+SELECT * FROM ANIMAL_INS
+GROUP BY ANIMAL_ID
+```
+
+### 역순 정렬하기
+```sql
+SELECT NAME, DATETIME FROM ANIMAL_INS
+GROUP BY ANIMAL_ID
+ORDER BY ANIMAL_ID desc;
+```
+
+### 아픈 동물 찾기
+```sql
+SELECT ANIMAL_ID, NAME FROM ANIMAL_INS
+WHERE INTAKE_CONDITION = 'Sick'
+GROUP BY ANIMAL_ID
+```
+
+### 어린 동물 찾기
+```sql
+SELECT ANIMAL_ID, NAME FROM ANIMAL_INS
+WHERE NOT INTAKE_CONDITION = 'Aged'
+GROUP BY ANIMAL_ID
+```
+### 동물의 아이디와 이름
+```sql
+SELECT ANIMAL_ID, NAME FROM ANIMAL_INS
+ORDER BY ANIMAL_ID
+```
+
+### 여러 기준으로 정렬하기
+```sql
+SELECT ANIMAL_ID, NAME, DATETIME FROM ANIMAL_INS
+ORDER BY NAME, DATETIME DESC
+```
+
+### 상위 n개 레코드
+```sql
+SELECT NAME FROM ANIMAL_INS
+ORDER BY DATETIME
+LIMIT 1
+```
