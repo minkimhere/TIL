@@ -17,7 +17,7 @@ ORDER BY i.ANIMAL_ID
 ```
 
 - 방법2
-- 만약 동물ID WHERE IN (...)이라면, ... 안에 있는  동물ID에 있는 것만 보고 싶다라는 뜻. WHERE IN ('ID1', 'ID2') 이런식으로 있따면, 동물ID 목록에서 ID1, ID2 만 보고 싶다는 뜻. 그래서 만약 보호소 동물ID를 구한 다음에 그 동물ID를 넣어주면, 그 동물ID들만 보고 싶다는 뜻. 그렇다면 반대로 WHERE NOT IN (...)을 한다면, 그 동물ID가 아닌 것만 보여달라는 뜻. 그렇다면 원래 구하기로 한 목적이 보호소에서 없어진 걸 구하라고 했으므로, WHERE NOT IN (...)을 하면 보호소에는 없지만 입양에만 있는 ID를 구하게 된다. 
+- 만약 동물ID WHERE IN (...)이라면, ... 안에 있는  동물ID에 있는 것만 보고 싶다라는 뜻. WHERE IN ('ID1', 'ID2') 이런식으로 있다면, 동물ID 목록에서 ID1, ID2 만 보고 싶다는 뜻. 그래서 만약 보호소 동물ID를 구한 다음에 그 동물ID를 넣어주면, 그 동물ID들만 보고 싶다는 뜻. 그렇다면 반대로 WHERE NOT IN (...)을 한다면, 그 동물ID가 아닌 것만 보여달라는 뜻. 그렇다면 원래 구하기로 한 목적이 보호소에서 없어진 걸 구하라고 했으므로, WHERE NOT IN (...)을 하면 보호소에는 없지만 입양에만 있는 ID를 구하게 된다. 
 ```sql
 SELECT ANIMAL_ID, NAME FROM ANIMAL_OUTS 
 WHERE ANIMAL_ID NOT IN (SELECT ANIMAL_ID FROM ANIMAL_INS)
